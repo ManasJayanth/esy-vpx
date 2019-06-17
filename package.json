@@ -12,8 +12,8 @@
     },
     "build": [
       "chmod 755 ./configure",
-      "./configure --enable-shared --enable-vp8 --enable-vp9 --prefix=#{self.install} #{os == 'windows' ? '--host=x86_64-w64-mingw32' : ''}",
-      "make",
+      "./configure #{os == 'linux' ? '--target=x86_64-linux-gcc': ''} #{os == 'windows' ? 'x86_64-win64-gcc': ''} #{os == 'darwin' ? '--target=x86_64-darwin17-gcc': ''} --disable-examples --enable-shared --enable-vp8 --enable-vp9 --prefix=#{self.install}",
+      "make V=1",
       "make install"
     ]
   },
