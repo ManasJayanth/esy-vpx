@@ -12,7 +12,7 @@
     },
     "build": [
       "chmod 755 ./configure",
-      "./configure --enable-vp8 --enable-vp9 --prefix=#{self.install} #{os == 'windows' ? '--host=x86_64-w64-mingw32' : ''}",
+      "./configure --enable-shared --enable-vp8 --enable-vp9 --prefix=#{self.install} #{os == 'windows' ? '--host=x86_64-w64-mingw32' : ''}",
       "make",
       "make install"
     ]
